@@ -49,6 +49,7 @@ dependencies:
   path_provider: ^0.4.0
   # path: ^1.6.2
   flutter_image_compress: ^0.6.3
+  flutter_star_rating: ^0.0.3
 dev_dependencies:
   flutter_test:
     sdk: flutter

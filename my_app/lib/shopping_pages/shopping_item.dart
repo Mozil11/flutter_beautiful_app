@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import '../router/application.dart';
 class ShoppingItem extends StatelessWidget {
+  String id;
+  ShoppingItem({this.id});
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return InkWell(
+      onTap: (){
+        Application.router.navigateTo(context, '/detailpage?id=$id');
+      },
+      child: Container(
       
       padding: EdgeInsets.all(10),
       // width: ScreenUtil().setWidth(750),
@@ -64,6 +70,8 @@ class ShoppingItem extends StatelessWidget {
             )
           ],
         ),
+    ),
     );
+    
   }
 }

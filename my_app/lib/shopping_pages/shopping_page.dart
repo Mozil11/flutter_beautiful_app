@@ -35,7 +35,8 @@ class ShoppingPage extends StatelessWidget {
                 expandedHeight: 300.0,// 展开的高度
                 forceElevated: innerBoxIsScrolled,//阴影
                 flexibleSpace:FlexibleSpaceBar(
-                  centerTitle: true,background: ShoppingMenu(),
+                  centerTitle: true,
+                  background: ShoppingMenu(),
                   collapseMode:CollapseMode.pin,//背景折叠动画
                 ),
                 bottom: TabBar(
@@ -89,7 +90,7 @@ class ShoppingPage extends StatelessWidget {
                           delegate:SliverChildBuilderDelegate(
                             
                             (_,index){
-                              return ShoppingItem();
+                              return ShoppingItem(id:'$index');
                             },
                             childCount:15
 

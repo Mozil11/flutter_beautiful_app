@@ -144,7 +144,7 @@ class _HomeMenuPageState extends State<HomeMenuPage> {
                             ),
                             new Padding(
                               
-                            padding: new EdgeInsets.only(top: ScreenUtil().setWidth(350)),
+                            padding: new EdgeInsets.only(top: ScreenUtil().setWidth(380)),
                             child: DownMenu()),
                             
 

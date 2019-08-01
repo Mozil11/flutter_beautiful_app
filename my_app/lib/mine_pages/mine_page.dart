@@ -32,7 +32,7 @@ class MinePage extends StatelessWidget {
                         child: MineShop(),
                         left: 10,
                         right: 10,
-                        bottom: ScreenUtil().setWidth(-40),
+                        bottom: ScreenUtil().setWidth(-30),
                       )
                   ],
                 ),

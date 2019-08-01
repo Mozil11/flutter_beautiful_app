@@ -3,7 +3,8 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'dart:async';
-
+// import '../provides/user_width.dart';
+// import 'package:provide/provide.dart';
 import 'package:flutter/services.dart';
 import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:path_provider/path_provider.dart';
@@ -173,6 +174,7 @@ String _error;
   }
   @override
   Widget build(BuildContext context) {
+    
     return Container(
       margin: EdgeInsets.only(top:20),
       padding: EdgeInsets.all(10),
