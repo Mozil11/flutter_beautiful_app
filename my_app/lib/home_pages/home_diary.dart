@@ -90,13 +90,19 @@ get wantKeepAlive => true;
         )),
         child: Column(
           children: <Widget>[
-            ClipRRect(
+            InkWell(
+              onTap: (){
+                print('2');
+              },
+              child:  ClipRRect(
               child: Image.network(v['src'],fit: BoxFit.cover,),
               borderRadius: BorderRadius.only(
                  topLeft: Radius.circular(6.0),
                     topRight: Radius.circular(6.0),
               ),
             ),
+            ),
+           
             
             Container(
               height: 130,

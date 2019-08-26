@@ -11,6 +11,8 @@ import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_image_compress/flutter_image_compress.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 class Tie extends StatefulWidget {
   @override
   _TieState createState() => new _TieState();
@@ -65,10 +67,11 @@ String _error;
           var result = await FlutterImageCompress.compressWithList(
             imageData,
            
-            quality: 96,
+            quality: 80,
            
           );
         //获得应用临时目录路径
+        
         final Directory _directory = await getTemporaryDirectory();
         final Directory _imageDirectory =await new Directory('${_directory.path}/image/')
         .create(recursive: true);
@@ -216,7 +219,7 @@ String _error;
   }
   Widget addimagebutton(){
     return OutlineButton(
-                padding: EdgeInsets.all(47),
+                padding: EdgeInsets.all(ScreenUtil().setWidth(80)),
                 child: Icon(Icons.add,color: Colors.black26,),
                 onPressed: (){
                   _pickImageUpLoad();
