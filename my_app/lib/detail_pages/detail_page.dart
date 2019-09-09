@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provide/provide.dart';
 import './detail_info.dart';
 import '../router/application.dart';
 import './detail_bottom.dart';
 import './detail_appraise.dart';
 import './detail_company.dart';
+import '../provides/shop_cart_provide.dart';
 class DetailPage extends StatelessWidget {
   List a = [
       {'name':'美购','item':DetailInfo()},
@@ -36,20 +38,44 @@ class DetailPage extends StatelessWidget {
                       // snap: true,
                       // floating: true,
                       actions: <Widget>[
-                        Container(
-                          margin: EdgeInsets.all(5),
-                          decoration: BoxDecoration(
-                            color: Color.fromRGBO(255, 255, 255, 0.5),
-                            borderRadius: BorderRadius.circular(60)
-                          ),
-                          child: IconButton(
-                            padding: EdgeInsets.all(4),
-                          icon: Icon(Icons.shopping_cart,color:Colors.black45),
-                          tooltip: 'Open shopping cart',
-                          onPressed: () {
-                            // handle the press
-                          },
-                        ),
+                        Stack(
+                            children: <Widget>[
+
+                              Container(
+                                margin: EdgeInsets.all(5),
+                                decoration: BoxDecoration(
+                                  color: Color.fromRGBO(255, 255, 255, 0.5),
+                                  borderRadius: BorderRadius.circular(60)
+                                ),
+                                child: IconButton(
+                                  padding: EdgeInsets.all(4),
+                                icon: Icon(Icons.shopping_cart,color:Colors.black45),
+                                tooltip: 'Open shopping cart',
+                                onPressed: () {
+                                  // handle the press
+                                  Application.router.navigateTo(context, './shopcart');
+                                },
+                              ),
+                              ),
+                              Provide<ShopCartProvide>(
+                                builder: (context,child,val){
+                                  int allcount = Provide.value<ShopCartProvide>(context).allcount;
+                                  return Positioned(
+                                    top: 2,
+                                    right: 10,
+
+                                    child: Container(
+                                      padding: EdgeInsets.fromLTRB(3, 1, 3, 1),
+                                      child: Text('$allcount'),
+                                      decoration: BoxDecoration(
+                                        color: Colors.red,
+                                        borderRadius: BorderRadius.circular(6)
+                                      ),
+                                    ),
+                                  );
+                                },
+                              )
+                            ],
                         ),
                         
                       ],

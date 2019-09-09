@@ -5,6 +5,7 @@ import './login_pages/login_page.dart';
 import './provides/login_provide.dart';
 import './index_page.dart';
 import './provides/home_provide.dart';
+import './provides/shop_cart_provide.dart';
 import 'package:fluro/fluro.dart';//路由插件
 import './router/application.dart';//引入静态配置
 import './router/main_router.dart';//引入主路由
@@ -15,16 +16,16 @@ void main(){
   var loginProvide = LoginProvide();
   var indexProvide = IndexProvide();
   var homeProvide = HomeProvide();
-
+  var shopCartProvide=ShopCartProvide();
   var providers = Providers();
 
 providers
 ..provide(Provider<HomeProvide>.value(homeProvide))
 
 ..provide(Provider<LoginProvide>.value(loginProvide))
-..provide(Provider<IndexProvide>.value(indexProvide));
+..provide(Provider<IndexProvide>.value(indexProvide))
+..provide(Provider<ShopCartProvide>.value(shopCartProvide));
 
-  
   
   
   runApp(ProviderNode(child: MyApp(),providers: providers,));

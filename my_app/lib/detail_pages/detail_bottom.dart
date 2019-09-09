@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:provide/provide.dart';
+import '../provides/shop_cart_provide.dart';
 class DetailBottom extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -14,8 +15,8 @@ class DetailBottom extends StatelessWidget {
             height: 60,
             child: Row(
                 children: <Widget>[
-                  Addshopcart(),
-                  Buybutton()
+                  Addshopcart(context),
+                  Buybutton(context)
                 ],
             ),
           ),
@@ -30,33 +31,45 @@ class DetailBottom extends StatelessWidget {
     
     
   }
-  Widget Buybutton(){
-    return Container(
+  Widget Buybutton(context){
+    return InkWell(
+      onTap: (){
+        Provide.value<ShopCartProvide>(context).remove();
+      },
+      child: Container(
      
-      padding: EdgeInsets.fromLTRB(20, 8, 20, 8),
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(254, 67, 101, 1),
-        borderRadius: BorderRadius.only(
-          topRight: Radius.circular(20),
-          bottomRight: Radius.circular(20)
+        padding: EdgeInsets.fromLTRB(20, 8, 20, 8),
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(254, 67, 101, 1),
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20),
+            bottomRight: Radius.circular(20)
+          ),
         ),
+        child: Text('立即支付',style: TextStyle(color: Colors.white),),
       ),
-      child: Text('立即支付',style: TextStyle(color: Colors.white),),
     );
+    
   }
-  Widget Addshopcart(){
-    return Container(
-       margin: EdgeInsets.only(left: 20),
-      padding: EdgeInsets.fromLTRB(20, 8, 20, 8),
-      decoration: BoxDecoration(
-        color: Color.fromRGBO(252, 157, 154, 1),
-        borderRadius: BorderRadius.only(
-          bottomLeft: Radius.circular(20),
-          topLeft: Radius.circular(20)
+  Widget Addshopcart(context){
+    return InkWell(
+        onTap: (){
+          Provide.value<ShopCartProvide>(context).save(1, '整容', 1, 500, 'https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3792086489,366048775&fm=26&gp=0.jpg');
+        },
+        child: Container(
+        margin: EdgeInsets.only(left: 20),
+        padding: EdgeInsets.fromLTRB(20, 8, 20, 8),
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(252, 157, 154, 1),
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(20),
+            topLeft: Radius.circular(20)
+          ),
         ),
+        child: Text('加购物车',style: TextStyle(color: Colors.white),),
       ),
-      child: Text('加购物车',style: TextStyle(color: Colors.white),),
     );
+    
   }
   Widget Ask(){
     return Container(

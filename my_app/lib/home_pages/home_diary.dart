@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:my_app/router/application.dart';
 import '../tag.dart';
 import 'package:provide/provide.dart';
 import '../provides/home_provide.dart';
@@ -55,7 +56,7 @@ get wantKeepAlive => true;
           crossAxisSpacing: 4.0,
            staggeredTileBuilder: (index) => StaggeredTile.fit(2),
           itemBuilder: (context,i){
-            return CardDiary(diary[i]);
+            return CardDiary(diary[i],i);
           },
           
       );
@@ -76,7 +77,7 @@ get wantKeepAlive => true;
       
     // );
   }
-  Widget CardDiary(v){
+  Widget CardDiary(v,i){
     
     return 
        Card(
@@ -92,7 +93,7 @@ get wantKeepAlive => true;
           children: <Widget>[
             InkWell(
               onTap: (){
-                print('2');
+                Application.router.navigateTo(context, '/userdayPage?i=$i');
               },
               child:  ClipRRect(
               child: Image.network(v['src'],fit: BoxFit.cover,),
