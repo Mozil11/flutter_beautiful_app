@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:my_app/router/application.dart';
-import 'package:provide/provide.dart';
-import '../provides/index_provide.dart';
+
 
 class ShoppingCar extends StatelessWidget {
   @override
