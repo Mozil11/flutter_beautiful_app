@@ -94,6 +94,10 @@ class ShopCartProvide extends ChangeNotifier{
         SharedPreferences pre =await SharedPreferences.getInstance();
       pre.remove('cartInfo');
       cartList = [];
+
+     
+      allcount = 0;
+       allprice = 0;
       print('清空。。。。。。');
       notifyListeners();
   }
