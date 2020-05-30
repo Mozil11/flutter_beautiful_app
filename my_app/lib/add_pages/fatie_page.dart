@@ -6,7 +6,7 @@ import 'dart:async';
 // import '../provides/user_width.dart';
 // import 'package:provide/provide.dart';
 import 'package:flutter/services.dart';
-import 'package:multi_image_picker/multi_image_picker.dart';
+// import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -40,10 +40,10 @@ String _error;
     //通过MultiImagePicker插件从本地相册选取图片，配置一次最多选择12张，禁止摄像头拍照
     try {
      print('我的数据：$requestList');
-      requestList = await MultiImagePicker.pickImages(
-      maxImages: 12,
-      enableCamera: false,
-    );
+    //   requestList = await MultiImagePicker.pickImages(
+    //   maxImages: 12,
+    //   enableCamera: false,
+    // );
     print('我的数据：$requestList');
     } on PlatformException catch (e) {
       error = e.message;

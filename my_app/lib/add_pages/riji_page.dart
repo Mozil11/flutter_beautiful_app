@@ -5,11 +5,11 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 
 import 'package:flutter/services.dart';
-import 'package:multi_image_picker/multi_image_picker.dart';
+// import 'package:multi_image_picker/multi_image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:path/path.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_image_compress/flutter_image_compress.dart';
+// import 'package:flutter_image_compress/flutter_image_compress.dart';
 class Ri extends StatefulWidget {
   @override
   _RiState createState() => new _RiState();
@@ -37,10 +37,10 @@ String _error;
     //通过MultiImagePicker插件从本地相册选取图片，配置一次最多选择12张，禁止摄像头拍照
     try {
      print('我的数据：$requestList');
-      requestList = await MultiImagePicker.pickImages(
-      maxImages: 12,
-      enableCamera: false,
-    );
+    //   requestList = await MultiImagePicker.pickImages(
+    //   maxImages: 12,
+    //   enableCamera: false,
+    // );
     print('我的数据：$requestList');
     } on PlatformException catch (e) {
       error = e.message;
@@ -61,12 +61,12 @@ String _error;
         
          //获取图片数据，并转换成uint8List类型
          Uint8List imageData = await item.buffer.asUint8List();
-          var result = await FlutterImageCompress.compressWithList(
-            imageData,
+          // var result = await FlutterImageCompress.compressWithList(
+          //   imageData,
            
-            quality: 96,
+          //   quality: 96,
            
-          );
+          // );
         //获得应用临时目录路径
         final Directory _directory = await getTemporaryDirectory();
         final Directory _imageDirectory =await new Directory('${_directory.path}/image/')
@@ -74,16 +74,16 @@ String _error;
         _path = _imageDirectory.path;
         print('本次获得路径：${_imageDirectory.path}');
         //将压缩的图片暂时存入应用缓存目录
-        File imageFile = new File('${_path}originalImage_$uuid.png')
-          ..writeAsBytesSync(result);
+        // File imageFile = new File('${_path}originalImage_$uuid.png')
+        //   ..writeAsBytesSync(result);
           
-          setState(() {
+        //   setState(() {
             
-            img.add(imageFile);
+        //     img.add(imageFile);
             
-          });
+        //   });
           
-        print('图片$i的 本地路径是：${imageFile.path}');
+        // print('图片$i的 本地路径是：${imageFile.path}');
         print('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>$_error');
         //释放图片原始数据资源
         // requestList[i].releaseOriginal();

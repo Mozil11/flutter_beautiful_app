@@ -22,6 +22,7 @@ GlobalKey<EasyRefreshState> _easyRefreshKey =
     @override
 
 get wantKeepAlive => true;
+
   List diary = [
     {
       'src':'https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1243117175,488022012&fm=11&gp=0.jpg'
@@ -30,14 +31,14 @@ get wantKeepAlive => true;
       'count':0
     },
     {
-      'src':'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563369300321&di=4ebcbfa61ef1f62861a0ecc22c6d7c27&imgtype=0&src=http%3A%2F%2Fimg1.utuku.china.com%2F640x0%2Fnews%2F20190604%2F7125d2aa-ba24-4f56-b7e9-6187a7e45961.jpg'
-      ,'islike':false,
+      'src':'https://5b0988e595225.cdn.sohucs.com/images/20171107/f9ea65cb453947f299dea65dd0d5c541.jpeg',
+      'islike':false,
       'id':4,
       'count':0
     },
     {
-      'src':'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1563369375636&di=3fe4e46ff8f36a2be6fa219715d67f44&imgtype=0&src=http%3A%2F%2Fimgyun.beautyedu.cn%2Fuploads%2Fallimg%2F190606%2F2-1Z6061J512K3.jpg'
-      ,'islike':false,
+      'src':'http://5b0988e595225.cdn.sohucs.com/images/20170827/41e9820351a84b90a0130f70f91a097c.jpeg',
+      'islike':false,
       'id':5,
       'count':0
     }
